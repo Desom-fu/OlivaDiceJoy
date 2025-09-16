@@ -21,7 +21,8 @@ import OlivaDiceJoy
 dictConsoleSwitchTemplate = {
     'default' : {
         'joyPokeMode': 0,
-        'joyEnableCCPK': 0
+        'joyEnableCCPK': 0,
+        'differentJrrpMode' : 0,
     }
 }
 

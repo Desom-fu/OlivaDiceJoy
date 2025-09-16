@@ -52,6 +52,10 @@ def add_poke_rd_func(target_func):
     return poke_rd_func
 
 def poke_jrrp(plugin_event, type):
+    jrrp_mode = OlivaDiceCore.console.getConsoleSwitchByHash(
+        'differentJrrpMode',
+        plugin_event.bot_info.hash
+    )
     dictTValue = OlivaDiceCore.msgCustom.dictTValue.copy()
     dictTValue['tName'] = '你'
     tmp_pcName = None
@@ -90,7 +94,8 @@ def poke_jrrp(plugin_event, type):
         hash_tmp = hashlib.new('md5')
         hash_tmp.update(str(time.strftime('%Y-%m-%d', time.localtime())).encode(encoding='UTF-8'))
         hash_tmp.update(str(plugin_event.data.user_id).encode(encoding='UTF-8'))
-        hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
+        if jrrp_mode == 1:
+            hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
         tmp_jrrp_int = int(int(hash_tmp.hexdigest(), 16) % 100) + 1
         dictTValue['tJrrpResult'] = str(tmp_jrrp_int)
         tmp_reply_str = OlivaDiceCore.msgCustomManager.formatReplySTR(dictStrCustom['strJoyJrrp'], dictTValue)
@@ -313,6 +318,10 @@ def unity_reply(plugin_event, Proc):
         #此群关闭时中断处理
         if not flag_groupEnable and not flag_force_reply:
             return
+        jrrp_mode = OlivaDiceCore.console.getConsoleSwitchByHash(
+            'differentJrrpMode',
+            plugin_event.bot_info.hash
+        )
         if isMatchWordStart(tmp_reast_str, 'jrrp', isCommand = True):
             tmp_reast_str = getMatchWordStartRight(tmp_reast_str, 'jrrp')
             tmp_reast_str = skipSpaceStart(tmp_reast_str)
@@ -321,7 +330,8 @@ def unity_reply(plugin_event, Proc):
             hash_tmp = hashlib.new('md5')
             hash_tmp.update(str(time.strftime('%Y-%m-%d', time.localtime())).encode(encoding='UTF-8'))
             hash_tmp.update(str(plugin_event.data.user_id).encode(encoding='UTF-8'))
-            hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
+            if jrrp_mode == 1:
+                hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
             tmp_jrrp_int = int(int(hash_tmp.hexdigest(), 16) % 100) + 1
             dictTValue['tJrrpResult'] = str(tmp_jrrp_int)
             tmp_reply_str = OlivaDiceCore.msgCustomManager.formatReplySTR(dictStrCustom['strJoyJrrp'], dictTValue)
@@ -336,7 +346,8 @@ def unity_reply(plugin_event, Proc):
             hash_tmp = hashlib.new('md5')
             hash_tmp.update(str(time.strftime('%Y-%m-%d', time.localtime(int(time.mktime(time.localtime())) - 24 * 60 * 60))).encode(encoding='UTF-8'))
             hash_tmp.update(str(plugin_event.data.user_id).encode(encoding='UTF-8'))
-            hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
+            if jrrp_mode == 1:
+                hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
             tmp_jrrp_int = int(int(hash_tmp.hexdigest(), 16) % 100) + 1
             dictTValue['tJrrpResult'] = str(tmp_jrrp_int)
             tmp_reply_str = OlivaDiceCore.msgCustomManager.formatReplySTR(dictStrCustom['strJoyZrrp'], dictTValue)
@@ -351,7 +362,8 @@ def unity_reply(plugin_event, Proc):
             hash_tmp = hashlib.new('md5')
             hash_tmp.update(str(time.strftime('%Y-%m-%d', time.localtime(int(time.mktime(time.localtime())) + 24 * 60 * 60))).encode(encoding='UTF-8'))
             hash_tmp.update(str(plugin_event.data.user_id).encode(encoding='UTF-8'))
-            hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
+            if jrrp_mode == 1:
+                hash_tmp.update(str(plugin_event.bot_info.hash).encode(encoding='UTF-8'))
             tmp_jrrp_int = int(int(hash_tmp.hexdigest(), 16) % 100) + 1
             dictTValue['tJrrpResult'] = str(tmp_jrrp_int)
             tmp_reply_str = OlivaDiceCore.msgCustomManager.formatReplySTR(dictStrCustom['strJoyMrrp'], dictTValue)
