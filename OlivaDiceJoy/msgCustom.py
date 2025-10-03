@@ -29,9 +29,10 @@ dictConsoleSwitchTemplate = {
 dictStrCustomDict = {}
 
 dictStrCustom = {
-    'strJoyJrrp': '[{tName}]的今日人品为[{tJrrpResult}]',
-    'strJoyZrrp': '[{tName}]的昨日人品为[{tJrrpResult}]',
-    'strJoyMrrp': '[{tName}]的明日人品为[{tJrrpResult}]'
+    'strJoyJrrp': '[{tUserName}]的今日人品为[{tJrrpResult}]',
+    'strJoyZrrp': '[{tUserName}]的昨日人品为[{tJrrpResult}]',
+    'strJoyMrrp': '[{tUserName}]的明日人品为[{tJrrpResult}]',
+    'strJoyPokeCustom': '[{tUserName}]你好，这里是青果核心OlivaDice。'
 }
 
 dictStrConst = {
