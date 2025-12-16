@@ -56,15 +56,7 @@ dictHelpDocTemp = {
 OlivaDice娱乐模块
 本模块为青果跑团掷骰机器人(OlivaDice)娱乐模块，集成与跑团无关的历史遗留娱乐功能（如今日人品等）。
 核心开发者: lunzhiPenxil仑质
-[.help OlivaDiceJoy更新] 查看本模块更新日志
 注: 本模块为可选不重要模块。''',
-
-    'OlivaDiceJoy更新': '''[OlivaDiceJoy]
-3.0.5: 支持新版OlivOS
-3.0.4: 戳一戳今日人品
-3.0.3: 戳一戳掷骰
-3.0.2: 用户记录优化
-3.0.0: 初始化项目''',
 
     'zrrp': '&jrrp',
     'mrrp': '&jrrp',
